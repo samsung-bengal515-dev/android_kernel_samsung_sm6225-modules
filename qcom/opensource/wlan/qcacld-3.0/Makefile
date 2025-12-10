@@ -13,16 +13,16 @@ M ?= $(shell pwd)
 
 ifeq ($(WLAN_ROOT),)
 KBUILD_OPTIONS += \
-    WLAN_ROOT=sm6225-modules/qcom/opensource/wlan/qcacld-3.0 \
-    WLAN_PLATFORM_ROOT=sm6225-modules/qcom/opensource/wlan/platform \
+    WLAN_ROOT=$(KERNEL_SRC)/../sm6225-modules/qcom/opensource/wlan/qcacld-3.0 \
+    WLAN_PLATFORM_ROOT=$(KERNEL_SRC)/../sm6225-modules/qcom/opensource/wlan/platform \
     WLAN_COMMON_ROOT=cmn \
-    WLAN_COMMON_INC=sm6225-modules/qcom/opensource/wlan/qcacld-3.0/cmn \
-    WLAN_FW_API=sm6225-modules/qcom/opensource/wlan/fw-api \
+    WLAN_COMMON_INC=$(KERNEL_SRC)/../sm6225-modules/qcom/opensource/wlan/qcacld-3.0/cmn \
+    WLAN_FW_API=$(KERNEL_SRC)/../sm6225-modules/qcom/opensource/wlan/fw-api \
     CONFIG_QCA_CLD_WLAN=m \
     CONFIG_CNSS_QCA6390=y \
     CONFIG_CNSS_OUT_OF_TREE=y \
-    CONFIG_CNSS2=m \
-    CONFIG_CNSS2_QMI=y \
+    CONFIG_ICNSS2=m \
+    CONFIG_ICNSS2_QMI=y \
     CONFIG_CNSS_QMI_SVC=m \
     CONFIG_CNSS_PLAT_IPC_QMI_SVC=m \
     CONFIG_CNSS_GENL=m \
