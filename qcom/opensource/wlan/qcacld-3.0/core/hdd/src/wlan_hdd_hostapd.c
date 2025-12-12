@@ -7059,7 +7059,6 @@ wlan_hdd_update_twt_responder(struct hdd_context *hdd_ctx,
 {}
 #endif
 
-#ifdef CFG80211_SINGLE_NETDEV_MULTI_LINK_SUPPORT
 static inline uint32_t
 wlan_util_get_centre_freq(struct wireless_dev *wdev, unsigned int link_id)
 {
@@ -7071,19 +7070,7 @@ wlan_util_get_chan_def(struct wireless_dev *wdev, unsigned int link_id)
 {
 	return wdev->links[link_id].ap.chandef;
 }
-#else
-static inline struct cfg80211_chan_def
-wlan_util_get_chan_def(struct wireless_dev *wdev, unsigned int link_id)
-{
-	return wdev->chandef;
-}
 
-static inline uint32_t
-wlan_util_get_centre_freq(struct wireless_dev *wdev, unsigned int link_id)
-{
-	return wdev->chandef.chan->center_freq;
-}
-#endif
 /**
  * __wlan_hdd_cfg80211_start_ap() - start soft ap mode
  * @wiphy: Pointer to wiphy structure
